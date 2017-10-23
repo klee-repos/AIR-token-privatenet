@@ -7,10 +7,10 @@ import 'bootstrap-loader';
 
 // Import libraries we need.
 import { default as Web3} from 'web3';
-import { default as contract } from 'truffle-contract'
+import { default as contract } from 'truffle-contract';
 
 // Import our contract artifacts and turn them into usable abstractions.
-import airtoken_artifact from '../../build/contracts/AIRToken.json'
+import airtoken_artifact from '../../build/contracts/AIRToken.json';
 
 var AirTokenContract = contract(airtoken_artifact);
 
