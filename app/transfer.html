@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>AIR Token Manager</title>
+	<script src='./app.js'></script>
+</head>
+
+<body>
+
+<br/>	
+
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container">
+
+      <div class="navbar-header">
+        <a class="navbar-brand">AIR Token</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="transfer.html">Transfer Token<span class="sr-only">(current)</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="panel panel-info">
+        <div class="panel-heading"><h5>Token Information</h5></div>
+        <div class="panel-body">
+          <table class="table table-condensed">
+            <tr>
+              <th>Token Symbol</th>
+              <td>AIR</td>
+            </tr>
+            <tr>
+              <th>Token Address</th>
+              <td><span id="tokeAddress"></span></td>
+            </tr>
+            <tr>
+              <th>Total Supply</th>
+              <td><span id="totalTokenSupply"></span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+   </div>
+   <div class="col-lg-6">
+      <div class="panel panel-info">
+        <div class="panel-heading"><h5>Account Information</h5></div>
+        <div class="panel-body">
+          <table class="table table-condensed">
+            <tr>
+              <th>Account Address</th>
+              <td><span id="accountAddress"></span></td>
+            </tr>
+            <tr>
+              <th>AIR Balance</th>
+              <td><span id="accountTokenAmount"></span></td>
+            </tr>
+            <tr>
+              <th>Ether Balance</th>
+              <td><span id="accountEtherAmount"></span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+   </div>
+  </div>
+</div>
+
+<br/>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading"><h5>Send Token</h5></div>
+				<div class="panel-body" style="height: 220px">
+					<form class="form-horizontal">
+			            <div class="form-group">
+			              <label class="control-label col-lg-2" for="inputRecipientSendToken">Recipient</label>
+			              <div class="col-lg-10">
+			                <input type="text" class="form-control" id="inputRecipientSendToken" placeholder="i.e 0xabcd123a...">
+			              </div>
+			            </div>
+			            <div class="form-group">
+			              <label class="control-label col-lg-2" for="inputAmountSendToken">Amount</label>
+			              <div class="col-lg-10">
+			                <input type="number" class="form-control" id="inputAmountSendToken" placeholder="i.e 10">
+			              </div>
+			            </div>
+			            <div class="form-group">
+			              <div class="col-lg-offset-2 col-lg-10">
+			                <button type="button" class="btn btn-default" onclick="App.transfer(); return false;">Transfer</button>
+			              </div>
+			            </div>
+			        </form>
+				</div>
+				<div class="panel-footer"><span id="transferStatus"></span></div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading"><h5>Transfer Token</h5></div>
+				<div class="panel-body" style="height: 220px">
+					<form class="form-horizontal">
+						<div class="form-group">
+			              <label class="control-label col-lg-2" for="inputFromTransferToken">From</label>
+			              <div class="col-lg-10">
+			                <input type="text" class="form-control" id="inputFromTransferToken" placeholder="i.e 0xabcd123a...">
+			              </div>
+			            </div>
+			            <div class="form-group">
+			              <label class="control-label col-lg-2" for="inputToTransferToken">To</label>
+			              <div class="col-lg-10">
+			                <input type="text" class="form-control" id="inputToTransferToken" placeholder="i.e 0xabcd123a...">
+			              </div>
+			            </div>
+			            <div class="form-group">
+			              <label class="control-label col-lg-2" for="inputAmountTransferToken">Amount</label>
+			              <div class="col-lg-10">
+			                <input type="number" class="form-control" id="inputAmountTransferToken" placeholder="i.e 10">
+			              </div>
+			            </div>
+			            <div class="form-group">
+			              <div class="col-lg-offset-2 col-lg-10">
+			                <button type="button" class="btn btn-default" onclick="App.transferFrom(); return false;">Transfer</button>
+			              </div>
+			            </div>
+			        </form>
+				</div>
+				<div class="panel-footer"><span id="transferFromStatus"></span></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br/>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-warning">
+        <div class="panel-heading"><h5>Event History</h5></div>
+        <div class="panel-body">
+          <span id="transferEvents"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  window.addEventListener('load', function() {
+    App.initTransfer();
+  });
+</script>
+
+</body>
+
+</html>
